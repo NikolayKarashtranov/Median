@@ -5,7 +5,7 @@ template <typename T>
 class MedianVector
 {
 private:
-	std::vector<T> numbers;
+	std::vector<T> data;
 	double median;
 	void InsertSorted(T num, size_t start, size_t end);
 	void CalcMedian();

@@ -6,11 +6,11 @@ void MedianVector<T>::InsertSorted(T num, size_t start, size_t end)
 {
 	if (start == end)
 	{
-		numbers.insert(numbers.begin() + end, num);
+		data.insert(data.begin() + end, num);
 		return;
 	}
 	size_t middle = (start + end) / 2;
-	if (num <= numbers[middle])
+	if (num <= data[middle])
 		InsertSorted(num, start, middle);
 	else
 		InsertSorted(num, middle + 1, end);
@@ -19,17 +19,17 @@ void MedianVector<T>::InsertSorted(T num, size_t start, size_t end)
 template<typename T>
 void MedianVector<T>::CalcMedian()
 {
-	size_t half_size = numbers.size()/2;
-	if (numbers.size() % 2 == 0)
-		median = (numbers[half_size - 1] + numbers[half_size]) / 2.0;
+	size_t half_size = data.size()/2;
+	if (data.size() % 2 == 0)
+		median = (data[half_size - 1] + data[half_size]) / 2.0;
 	else
-		median = numbers[half_size];
+		median = data[half_size];
 }
 
 template<typename T>
 void MedianVector<T>::Insert(T num)
 {
-	InsertSorted(num, 0, numbers.size());
+	InsertSorted(num, 0, data.size());
 	CalcMedian();
 }
 
