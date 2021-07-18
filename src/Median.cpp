@@ -4,7 +4,7 @@
 template<typename T>
 void MedianVector<T>::InsertSorted(T num, size_t start, size_t end)
 {
-	if (start >= end)
+	if (start == end)
 	{
 		numbers.insert(numbers.begin() + end, num);
 		return;
