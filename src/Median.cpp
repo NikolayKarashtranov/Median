@@ -2,7 +2,7 @@
 #include "Tests.hpp"
 
 template<typename T>
-void MedianVector<T>::InsertSorted(T num, size_t start, size_t end)
+void MedianContainer<T>::InsertSorted(T num, size_t start, size_t end)
 {
 	if (start == end)
 	{
@@ -17,7 +17,7 @@ void MedianVector<T>::InsertSorted(T num, size_t start, size_t end)
 }
 
 template<typename T>
-void MedianVector<T>::CalcMedian()
+void MedianContainer<T>::CalcMedian()
 {
 	size_t half_size = data.size()/2;
 	if (data.size() % 2 == 0)
@@ -27,21 +27,21 @@ void MedianVector<T>::CalcMedian()
 }
 
 template<typename T>
-void MedianVector<T>::Insert(T num)
+void MedianContainer<T>::Insert(T num)
 {
 	InsertSorted(num, 0, data.size());
 	CalcMedian();
 }
 
 template<typename T>
-double MedianVector<T>::GetMedian()
+double MedianContainer<T>::GetMedian()
 {
 	return median;
 }
 
 void TestMedian_Even()
 {
-	MedianVector<int> m;
+	MedianContainer<int> m;
 	m.Insert(1);
 	m.Insert(10);
 	m.Insert(10);
@@ -58,7 +58,7 @@ void TestMedian_Even()
 
 void TestMedian_Odd()
 {
-	MedianVector<int> m;
+	MedianContainer<int> m;
 	m.Insert(1);
 	m.Insert(10);
 	m.Insert(10);
@@ -76,7 +76,7 @@ void TestMedian_Odd()
 
 void TestMedian_Float()
 {
-	MedianVector<float> m;
+	MedianContainer<float> m;
 	m.Insert(5.0f);
 	m.Insert(3.0f);
 	m.Insert(3.1f);

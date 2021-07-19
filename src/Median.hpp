@@ -2,7 +2,7 @@
 #include <iostream>
 
 template <typename T>
-class MedianVector
+class MedianContainer
 {
 private:
 	std::vector<T> data;
